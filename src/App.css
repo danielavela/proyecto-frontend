@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.naranjaLetra{
+  
+  color:#F36B21;
+}
+.bienvenida{
+  text-align: center;
+  color:#F36B21;
+}
+.naranja{
+  background-color:#F36B21 ;
+}

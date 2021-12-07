@@ -54,7 +54,7 @@ class ChildEdit extends Component {
 
   render() {
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Editar registro de niño o adolescente' : 'Registrar nuevo niño o adolescente'}</h2>;
+    const title = <h2>{item.id ? 'Registro de niño o adolescente' : 'Registrar nuevo niño o adolescente'}</h2>;
 
     return <div>
       <AppNavbar/>

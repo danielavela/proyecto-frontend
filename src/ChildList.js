@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component , useState } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,23 @@ class ChildList extends Component {
     this.state = {children: [], isLoading: true};
     this.remove = this.remove.bind(this);
   }
+  
+  /* const [nameSearch, setNameSearch] = useState("");
+  const [children, setChildren] = useState([]);
+  
+  const onSubmitForm = async e => {
+    e.preventDefault();
+    try {
+      
+      const response = await fetch(`http://localhost:4000/api/children/search/?nameSearch=${nameSearch}`);
+  
+      const parseResponse = await response.json();
+  
+      setChildren(parseResponse);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }; */
 
   componentDidMount() {
     this.setState({isLoading: true});
@@ -48,7 +65,8 @@ class ChildList extends Component {
         
         <td>
           <ButtonGroup>
-            <Button size="sm" color="primary" tag={Link} to={"/children/" + child.id}>Editar</Button>
+            
+            <Button size="sm" color="primary" tag={Link} to={"/children/" + child.id}>Ver y editar</Button>
             <Button size="sm" color="danger" onClick={() => this.remove(child.id)}>Eliminar</Button>
           </ButtonGroup>
         </td>
@@ -58,11 +76,36 @@ class ChildList extends Component {
     return (
       <div>
         <AppNavbar/>
+        <br/>
+        
         <Container fluid>
-          <div className="float-right">
-            <Button color="success" tag={Link} to="/children/new">Registrar nuevo niño o adolescente</Button>
+          <div className="naranjaLetra">
+            <h4>Gestión de datos personales de niños o adolescentes</h4>
           </div>
-          <h3>Lista de niños o adolescentes</h3>
+          
+          <div className="float-right">
+            <Button color="dark" tag={Link} to="/children/new">Registrar nuevo niño o adolescente</Button>
+          </div>
+   
+          <br/>
+          <br/>
+          <div className="container text-center">
+            <h4>Lista de niños o adolescentes</h4>
+          </div>
+
+          <form className="d-flex">
+            <input type="text" name="name" placeholder="Buscar niño o adolescente" className="form-control"
+               //value={nameSearch}
+              // onChange={e => setNameSearch(e.target.value)}  onSubmit={onSubmitForm}
+            />
+            <button className="btn btn-success">Buscar</button>
+          </form> 
+         {/*   <div className="d-flex">
+            <input type="text" name="name" placeholder="Buscar niño o adolescente" className="form-control"/>
+            <button className="btn btn-success">Buscar</button>
+          </div>  */}
+
+
           <Table className="mt-4">
             <thead>
               <tr>

@@ -16,9 +16,13 @@ export default class AppNavbar extends Component {
   }
 
   render() {
-    return <Navbar color="dark" dark expand="md">
-      <NavbarBrand tag={Link} to="/">Comunidad educativa Tiquipaya Wasi CETWA</NavbarBrand>
-      <NavbarToggler onClick={this.toggle}/>
+    
+    return <Navbar className="naranja" dark expand="md">
+        
+      <NavbarBrand tag={Link} to="/">Inicio</NavbarBrand>
+      {/* <NavbarBrand tag={Link} to="/children">Gestión de datos personales de niños o adolescentes</NavbarBrand> */}
+          
+      
       <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className="ml-auto" navbar>
          
